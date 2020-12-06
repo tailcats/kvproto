@@ -29,6 +29,14 @@ message PutRequest {
 
 message PutResponse {}
 
+message UpdateRequest {
+    string cf = 1;
+    bytes key = 2;
+    bytes value = 3;
+}
+
+message UpdateResponse {}
+
 message DeleteRequest {
     string cf = 1;
     bytes key = 2;
@@ -87,6 +95,7 @@ enum CmdType {
     DeleteRange = 7;
     IngestSST = 8;
     ReadIndex = 9;
+    Update = 10;
 }
 
 message Request {
@@ -99,6 +108,7 @@ message Request {
     DeleteRangeRequest delete_range = 8;
     IngestSSTRequest ingest_sst = 9;
     ReadIndexRequest read_index = 10;
+    UpdateRequest update = 11;
 }
 
 message Response {
@@ -111,6 +121,7 @@ message Response {
     DeleteRangeResponse delte_range = 8;
     IngestSSTResponse ingest_sst = 9;
     ReadIndexResponse read_index = 10;
+    UpdateResponse update = 11;
 }
 
 message ChangePeerRequest {

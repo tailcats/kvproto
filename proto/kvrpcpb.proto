@@ -463,6 +463,29 @@ message RawBatchPutResponse {
     string error = 2;
 }
 
+message RawUpdateRequest {
+    Context context = 1;
+    bytes key = 2;
+    bytes value = 3;
+    string cf = 4;
+}
+
+message RawUpdateResponse {
+    errorpb.Error region_error = 1;
+    string error = 2;
+}
+
+message RawBatchUpdateRequest {
+    Context context = 1;
+    repeated KvPair pairs = 2;
+    string cf = 3;
+}
+
+message RawBatchUpdateResponse {
+    errorpb.Error region_error = 1;
+    string error = 2;
+}
+
 message RawDeleteRequest {
     Context context = 1;
     bytes key = 2;
